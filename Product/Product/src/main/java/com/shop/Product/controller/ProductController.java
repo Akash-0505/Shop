@@ -23,7 +23,7 @@ public class ProductController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<String> getProductById(@RequestParam Integer id)
+    public ResponseEntity<Product> getProductById(@RequestParam Integer id)
     {
         return productServiceImpliment.getProductById(id);
     }

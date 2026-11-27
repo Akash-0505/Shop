@@ -9,17 +9,17 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class RestConfig {
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate(){
-
-        return new RestTemplate();
-
-    }
-
-    @Bean
-    @LoadBalanced
-    public WebClient webClient(){
-        return WebClient.builder().build();
-    }
+//    @Bean
+//    @LoadBalanced
+//    public RestTemplate restTemplate(){
+//
+//        return new RestTemplate();
+//
+//    }
+//
+//    @Bean
+//    @LoadBalanced
+//    public WebClient webClient(){
+//        return WebClient.builder().build();
+//    }
 }

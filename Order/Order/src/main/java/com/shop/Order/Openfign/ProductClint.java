@@ -7,14 +7,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "Product", url = "http://localhost:8081/product")
+@FeignClient(name = "Product", path = "/product")
 
 public interface ProductClint {
 
     @GetMapping("/get")
     public ResponseEntity<Page<Product>> getProduct(@RequestParam(defaultValue = "0") Integer pageNo, @RequestParam(defaultValue = "5") Integer pageSize, @SpringQueryMap Product product);
     @GetMapping("/")
-    public ResponseEntity<String> getProductById(@RequestParam Integer id);
+    public ResponseEntity<Product> getProductById(@RequestParam Integer id);
     @PostMapping("/save")
     public String saveProduct(@RequestBody Product product);
     @PutMapping("/update")

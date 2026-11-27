@@ -30,13 +30,11 @@ public class ProductServiceImpliment implements ProductService{
     }
 
     @Override
-    public ResponseEntity<String> getProductById(Integer id) {
+    public ResponseEntity<Product> getProductById(Integer id) {
         Optional<Product> optionalProduct =productRepo.findById(id);
-        if(optionalProduct.isPresent()){
             Product product=optionalProduct.get();
-            return ResponseEntity.status(HttpStatus.FOUND).body(product.toString());
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid Id..!, Product Not Found..!") ;
+            return ResponseEntity.ok(product);
+
     }
 
     @Override
@@ -54,6 +52,7 @@ public class ProductServiceImpliment implements ProductService{
             product1.setProductName(product.getProductName());
             product1.setPrice(product.getPrice());
             product1.setCategory(product.getCategory());
+            productRepo.save(product1);
 
             return "Product Updated Successfully...";
         }
